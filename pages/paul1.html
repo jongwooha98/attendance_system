@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/b4edfbfeaf.js" crossorigin="anonymous"></script>
+        
+        <title>바울1-잠실교회 유치부 출석체크</title>
+        <!-- CSS -->
+        <link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
+        <!-- JavaScript -->
+        <script type="text/javascript" src="../js/main.js"></script>
+
+        
+    </head>
+    <body onload="showCounter()">
+        
+        <div class="container holder">
+            <h2>바울1</h2>
+            <p>이아로 선생님</p>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <a href="../index.html">반선택</a>
+                </div>     
+            </div>
+
+            <form>
+                <div class="attendance">
+                    
+                    <label for="paul1_1">이산</label>
+                    <input type="checkbox" id="paul1_1" class="paul1" onclick="updateCount()" />
+                    <span></span>
+                    <br>
+
+                    <label for="paul1_2">신희찬</label>
+                    <input type="checkbox" id="paul1_2" class="paul1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="paul1_3">변예원</label>
+                    <input type="checkbox" id="paul1_3" class="paul1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="paul1_4">권도훈</label>
+                    <input type="checkbox" id="paul1_4" class="paul1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                </div>
+
+                
+                <div>
+                    <p>출석인원수: <span id="result_paul1"></span></p>
+                </div>
+
+            </form>
+            
+
+
+
+        </div>
+        
+    </body>
+    
+    <script>
+        window.updateCount = function() {
+            let paul1 = $(".paul1:checked").length;
+            localStorage.paul1 = paul1;
+            document.getElementById("result_paul1").innerHTML = paul1;
+        };
+
+        function showCounter(){
+            if(typeof(Storage) !== "undefined") {
+                if (localStorage.paul1 == undefined) {
+                    document.getElementById("result_paul1").innerHTML = 0;
+                } else {
+                document.getElementById("result_paul1").innerHTML =localStorage.paul1;
+                }
+            }
+            
+        };
+    </script>   
+
+</html>

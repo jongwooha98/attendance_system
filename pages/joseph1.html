@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/b4edfbfeaf.js" crossorigin="anonymous"></script>
+        
+        <title>요셉1-잠실교회 유치부 출석체크</title>
+        <!-- CSS -->
+        <link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
+        <!-- JavaScript -->
+        <script type="text/javascript" src="../js/main.js"></script>
+
+        
+    </head>
+    <body onload="showCounter()">
+        
+        <div class="container holder">
+            <h2>요셉1</h2>
+            <p>김민철 선생님</p>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <a href="../index.html">반선택</a>
+                </div>     
+            </div>
+            <form>
+                <div class="attendance">
+                    
+                    <label for="joseph1_1">염이레</label>
+                    <input type="checkbox" id="joseph1_1" class="joseph1" onclick="updateCount()" />
+                    <span></span>
+                    <br>
+
+                    <label for="joseph1_2">차수빈</label>
+                    <input type="checkbox" id="joseph1_2" class="joseph1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="joseph1_3">정단비</label>
+                    <input type="checkbox" id="joseph1_3" class="joseph1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="joseph1_4">이수호</label>
+                    <input type="checkbox" id="joseph1_4" class="joseph1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="joseph1_5">문하민</label>
+                    <input type="checkbox" id="joseph1_5" class="joseph1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="joseph1_6">양주원</label>
+                    <input type="checkbox" id="joseph1_6" class="joseph1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="joseph1_7">허시연</label>
+                    <input type="checkbox" id="joseph1_7" class="joseph1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+
+                </div>
+
+                <div>
+                    <p>출석인원수: <span id="result_joseph1"></span></p>
+                </div>
+
+            </form>
+
+
+
+        </div>
+        
+    </body>
+    <script>
+        window.updateCount = function() {
+            let joseph1 = $(".joseph1:checked").length;
+            localStorage.joseph1 = joseph1;
+            document.getElementById("result_joseph1").innerHTML = joseph1;
+        };
+
+
+        function showCounter(){
+            if(typeof(Storage) !== "undefined") {
+                if (localStorage.joseph1 == undefined) {
+                    document.getElementById("result_joseph1").innerHTML = 0;
+                } else {
+                document.getElementById("result_joseph1").innerHTML =localStorage.joseph1;
+                }
+            }
+            
+        };
+
+        
+        
+        
+    </script>
+    
+</html>

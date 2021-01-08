@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/b4edfbfeaf.js" crossorigin="anonymous"></script>
+        
+        <title>노아1-잠실교회 유치부 출석체크</title>
+        <!-- CSS -->
+        <link rel = "stylesheet" type = "text/css" href = "../css/main.css" />
+        <!-- JavaScript -->
+        <script type="text/javascript" src="../js/main.js"></script>
+
+        
+    </head>
+    <body onload="showCounter()">
+        
+        <div class="container holder">
+            <h2>노아1</h2>
+            <p>양은선 선생님</p>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <a href="../index.html">반선택</a>
+                </div>     
+            </div>
+            
+            <form>
+                <div class="attendance">
+
+                    <label for="noah1_1">남준우</label>
+                    <input type="checkbox" id="noah1_1" class="noah1" onclick="updateCount()" />
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_2">강건</label>
+                    <input type="checkbox" id="noah1_2" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_3">신예준</label>
+                    <input type="checkbox" id="noah1_3" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_4">양지성</label>
+                    <input type="checkbox" id="noah1_4" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_5">신이안</label>
+                    <input type="checkbox" id="noah1_5" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_6">김수아</label>
+                    <input type="checkbox" id="noah1_6" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_7">김예원</label>
+                    <input type="checkbox" id="noah1_7" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                    <label for="noah1_8">이유은</label>
+                    <input type="checkbox" id="noah1_8" class="noah1" onclick="updateCount()"/>
+                    <span></span>
+                    <br>
+
+                </div>
+
+                <div>
+                    <p>출석인원수: <span id="result_noah1"></span></p>
+                </div>
+
+            </form>
+
+        
+
+
+
+        </div>
+        
+    <body>
+    <script>
+        window.updateCount = function() {
+            let noah1 = $(".noah1:checked").length;
+            localStorage.noah1 = noah1;
+            document.getElementById("result_noah1").innerHTML = noah1;
+        };
+
+
+        function showCounter(){
+            if(typeof(Storage) !== "undefined") {
+                if (localStorage.noah1 == undefined) {
+                    document.getElementById("result_noah1").innerHTML = 0;
+                } else {
+                    document.getElementById("result_noah1").innerHTML = localStorage.noah1;
+                }
+            }
+            
+        };
+
+        
+        
+        
+    </script>
+</html>
